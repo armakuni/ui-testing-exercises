@@ -1,0 +1,36 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22",
+    "npm-watch": "^0.11.0",
+    "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "dev": "concurrently yarn:*:watch",
+    "start:watch": "nodemon build/index.js",
+    "start": "yarn build && node build/index.js",
+    "build:watch": "tsc -w",
+    "build": "tsc",
+    "copy-templates:watch": "npm-watch copy-templates",
+    "copy-templates": "rsync -r ./templates/ ./build/templates/"
+  },
+  "watch": {
+    "copy-templates": {
+      "patterns": [
+        "templates"
+      ],
+      "extensions": "pug",
+      "quiet": false
+    }
+  }
+}

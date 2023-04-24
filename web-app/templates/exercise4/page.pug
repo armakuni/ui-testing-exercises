@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  h2 Secrets
+  .secrets
+    button(id="show-secret-button") Show Secret
+
+  script.
+    setTimeout(() => {
+      const showSecretButton = document.getElementById("show-secret-button");
+
+      function showSecret(secret) {
+        const secretElement = document.createElement("p")
+        secretElement.innerText = secret;
+        document.body.appendChild(secretElement);
+      }
+
+      showSecretButton.onclick = () => {
+        showSecretButton.disabled = true;
+        showSecret("It was Professor Plum in the library with the pipe!")
+      }
+    }, Math.random() * 3000)

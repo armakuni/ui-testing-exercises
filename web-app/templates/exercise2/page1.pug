@@ -1,0 +1,65 @@
+extends ../layout
+
+block content
+  h2 Welcome
+  p You need to login to login in to continue
+  button(id="login") Log in
+
+  script.
+    function submitLogin(username, password) {
+      if (username === 'user' && password === 'password') {
+        window.location.href = '/exercise2/logged-in'
+      } else {
+        alert('Invalid username or password')
+      }
+    }function displayLoginPopup() {
+      const popup = document.createElement('div')
+      popup.className = 'login-popup'
+
+      const form = document.createElement('form')
+      popup.appendChild(form)
+
+      const usernameLabel = document.createElement('label')
+      usernameLabel.setAttribute('for', 'username')
+      usernameLabel.innerHTML = 'Username'
+      form.appendChild(usernameLabel)
+
+      const usernameInput = document.createElement('input')
+      usernameInput.setAttribute('type', 'text')
+      usernameInput.setAttribute('name', 'username')
+      usernameInput.setAttribute('id', 'username')
+      form.appendChild(usernameInput)
+
+      const passwordLabel = document.createElement('label')
+      passwordLabel.setAttribute('for', 'password')
+      passwordLabel.innerHTML = 'Password'
+      form.appendChild(passwordLabel)
+
+      const passwordInput = document.createElement('input')
+      passwordInput.setAttribute('type', 'password')
+      passwordInput.setAttribute('name', 'password')
+      passwordInput.setAttribute('id', 'password')
+      form.appendChild(passwordInput)
+
+      const submitButton = document.createElement('button')
+      submitButton.setAttribute('type', 'submit')
+      submitButton.setAttribute('id', 'submit-login')
+      submitButton.innerHTML = 'Log in'
+      submitButton.onclick = (event) => {
+        event.preventDefault()
+        const username = usernameInput.value
+        const password = passwordInput.value
+        submitLogin(username, password);
+      }
+      form.appendChild(submitButton)
+
+      document.body.appendChild(popup)
+    }
+
+    const showLoginPopupButton = document.getElementById('login')
+    showLoginPopupButton.onclick = () => {
+      showLoginPopupButton.style.display = 'none'
+      setTimeout(() => {
+        displayLoginPopup()
+      }, Math.random() * 5000)
+    }

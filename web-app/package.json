@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "concurrently yarn:*:watch",
     "start:watch": "nodemon build/index.js",
-    "start": "yarn build && node build/index.js",
+    "start": "yarn copy-templates && yarn build && node build/index.js",
     "build:watch": "tsc -w",
     "build": "tsc",
     "copy-templates:watch": "npm-watch copy-templates",
@@ -26,9 +26,7 @@
   },
   "watch": {
     "copy-templates": {
-      "patterns": [
-        "templates"
-      ],
+      "patterns": ["templates"],
       "extensions": "pug",
       "quiet": false
     }

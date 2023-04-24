@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h2 Newsletter
+  .newsletter-form
+    p Subscribe to our newsletter to receive updates about new exercises.
+    form(action='/exercise1', method='POST')
+      label(for='email') Email
+      input(type='email', name='email', id='email')
+      button(type='submit') Subscribe

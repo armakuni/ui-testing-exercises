@@ -27,7 +27,7 @@ Once the app has started, you can access it at
 
 ### Setup the tests
 
-In another terminal window, `cd` to the [test](./test/) directory and
+In another terminal window, `cd` to the [tests](./test/) directory and
 run:
 
 ```bash
@@ -42,7 +42,7 @@ yarn playwright test
 
 ### The Exercises
 
-You can find the tests in [tests/tests](./test/tests).
+You can find the tests in [tests/tests](./tests/tests).
 You will notice that there are some files in there called
 `exercise*.spec.ts`.
 

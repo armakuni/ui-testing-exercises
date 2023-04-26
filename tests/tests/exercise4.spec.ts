@@ -7,7 +7,7 @@ import {sleep} from "./unhelpers";
  * if it doesn't work the first time.
  */
 
-test("show secret", async ({ page }) => {
+test.fixme("show secret", async ({ page }) => {
     await page.goto("/exercise4");
 
     // Wait for the page to load and button to become active

@@ -3,6 +3,10 @@
 This repository contains a set of exercises to help you learn how to
 build stable UI tests.
 
+**NOTE: These exercises put emphasis on make the tests resillient to systems
+which are a bit unpredictable. In these cases, it would be preferable to
+improve the system.**
+
 ## The Plot
 
 Some time ago, the team created some UI tests using Playwright, however,
